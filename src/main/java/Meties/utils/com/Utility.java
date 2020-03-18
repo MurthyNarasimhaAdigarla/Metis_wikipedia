@@ -11,11 +11,9 @@ import org.testng.Assert;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import static org.testng.Assert.assertEquals;
-
 public class Utility {
     public static WebDriver driver;
-    private static String currentUsersDir = System.getProperty("user.dir");
+    private static final String currentUsersDir = System.getProperty("user.dir");
     public void openingBrowser(){
 
 
@@ -28,14 +26,14 @@ public class Utility {
     }
 
 
-    public void validatehyperlinksincontentboxinMetiswikipediapage(){
+    public void validatehyperlinksincontentboxinMetiswikipediapage() {
         List<WebElement> linksInContentBox = driver.findElements(By.xpath("//*[@id='toc']/ul/li"));
         int totallinks = linksInContentBox.size();
         System.out.println("total " + totallinks);
-        for (int i = 0; i < totallinks; i++) {
-            String NameoflinksInContentBox = linksInContentBox.get(i).getText();
+        for (WebElement inContentBox : linksInContentBox) {
+            String NameoflinksInContentBox = inContentBox.getText();
             System.out.println(NameoflinksInContentBox);
-            String tagoflinksInContentBox = linksInContentBox.get(i).getTagName();
+            String tagoflinksInContentBox = inContentBox.getTagName();
             Assert.assertEquals(tagoflinksInContentBox, "li");
 
         }
