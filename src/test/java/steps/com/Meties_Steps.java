@@ -16,7 +16,6 @@ public class Meties_Steps extends Utility {
 	@Given("^I validate headings of content box in Metis wikipedia page$")
 	public void i_validate_headings_of_content_box_in_Metis_wikipedia_page() throws Throwable {
 		// driver.findElement(By.partialLinkText("Family")).click();
-
 		// in progress
 
 	}
